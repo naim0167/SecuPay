@@ -51,7 +51,7 @@ class GetActiveFlagBitsController extends Controller
             $flagBitNumber = get_object_vars($activeFlagBit)['flagbit_id'];
             $flagBitName[] = array_search($flagBitNumber, $dataFlagConstantsList, true);
         }
-        return response()->json(['Data Flag' => $flagBitName], 200,
+        return response()->json(['Data Flag' => array_filter($flagBitName)], 200,
             [
                 'Content-Type' => 'application/json',
                 'Charset' => 'utf-8'
